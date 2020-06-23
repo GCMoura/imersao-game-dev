@@ -1,51 +1,58 @@
 
-class Personagem {
-    constructor (imagem) {
-        this.imagem = imagem
-        this.larguraPersonagem = 110
-        this.alturaPersonagem = 135
-        this.posicaoInicialPersonagem = height - this.alturaPersonagem
+class Personagem extends Animacao{
+    constructor (matriz, imagem, x, largura, altura, larguraSprite, alturaSprite) {
+        super(matriz, imagem, x, largura, altura, larguraSprite, alturaSprite)
 
-        this.matriz = [
-            [0, 0],
-            [220, 0],
-            [440, 0],
-            [660, 0],
-            [0, 270],
-            [220, 270],
-            [440, 270],
-            [660, 270],
-            [0, 540],
-            [220, 540],
-            [440, 540],
-            [660, 540],
-            [0, 810],
-            [220, 810],
-            [440, 810],
-            [660, 810]
-        ]
-        this.frameAtual = 0
+        this.yInicial = height - this.altura
+        this.y = this.yInicial
 
+        this.xInicial = this.x
+
+        this.gravidade = 3
+        this.velocidadeDoPulo = 0
     }
 
-    exibe() {
-        image( 
-                this.imagem, 
-                0, this.posicaoInicialPersonagem, 
-                this.larguraPersonagem, this.alturaPersonagem, 
-                this.matriz[this.frameAtual][0], this.matriz[this.frameAtual][1], 
-                this.larguraPersonagem * 2, this.alturaPersonagem * 2
-            )
-
-        this.anima()
+    pula() {
+        this.velocidadeDoPulo = -30
     }
 
-    anima() {
-        this.frameAtual++
+    aplicaGravidade() {
+        this.y = this.y + this.velocidadeDoPulo
+        this.velocidadeDoPulo = this.velocidadeDoPulo + this.gravidade
 
-        if(this.frameAtual >= this.matriz.length - 1){
-            this.frameAtual = 0
+        if(this.y > this.yInicial) {
+            this.y = this.yInicial
         }
+    }
+
+    andaParaFrente(){
+        if(this.x < windowWidth - 100) {
+            this.x = this.x + 20
+        }
+    }
+
+    andaParaTras(){
+        if(this.x > this.xInicial) {
+            this.x = this.x - 20
+        }
+    }
+
+    estaColidindo(inimigo) {
+
+        const precisao = .7
+
+        const colisao = collideRectRect(
+            this.x, 
+            this.y, 
+            this.largura * precisao, 
+            this.altura * precisao, 
+            inimigo.x, 
+            inimigo.y, 
+            inimigo.largura * precisao, 
+            inimigo.altura * precisao
+        )
+
+        return colisao
     }
 
 }
