@@ -28,37 +28,38 @@ let inimigo
 let imagemInimigo
 const matrizInimigo = [
     [0, 0],
-    [105, 0],
-    [210, 0],
-    [315, 0],
+    [104, 0],
+    [208, 0],
+    [312, 0],
     [0, 104],
-    [105, 104],
-    [210, 104],
-    [315, 104],
+    [104, 104],
+    [208, 104],
+    [312, 104],
     [0, 208],
-    [105, 208],
-    [210, 208],
-    [315, 208],
+    [104, 208],
+    [208, 208],
+    [312, 208],
     [0, 312],
-    [105, 312],
-    [210, 312],
-    [315, 312],
+    [104, 312],
+    [208, 312],
+    [312, 312],
     [0, 409],
-    [105, 409],
-    [210, 409],
-    [315, 409],
+    [104, 409],
+    [208, 409],
+    [312, 409],
     [0, 503],
-    [105, 503],
-    [210, 503],
-    [315, 503],
+    [104, 503],
+    [208, 503],
+    [312, 503],
     [0, 609],
-    [105, 609],
-    [210, 609],
-    [315, 609],
+    [104, 609],
+    [208, 609],
+    [312, 609],
   ]
 
 let somDoJogo;
 let somDoPulo;
+let somGameOver;
 
 function preload() { //antes do jogo começar
     imagemCenario = loadImage('./assets/imagens/cenario/floresta.png')
@@ -66,6 +67,7 @@ function preload() { //antes do jogo começar
     imagemInimigo = loadImage('./assets/imagens/inimigos/gotinha.png')
     somDoJogo = loadSound('./assets/sons/trilha_jogo.mp3')
     somDoPulo = loadSound('./assets/sons/somPulo.mp3')
+    somGameOver = loadSound('./assets/sons/gameOver.wav')
 }
 
 function setup() { //setup inicial do jogo. É chamado uma vez no inicio
@@ -106,10 +108,12 @@ function draw(){ //desenhar o jogo. É chamado a todo momento
         noLoop()
         somDoJogo.stop()
 
-        //image, gameOVer tamanho (512 x 362)
+        //tamanho da imagem gameOver (512 x 362)
         loadImage('./assets/imagens/cenario/gameOver.png', img => {
             image(img, width/2 - 256, height/2 - 181);
         }) 
+
+        somGameOver.play()
         
     }
 }
