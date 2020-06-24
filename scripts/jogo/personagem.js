@@ -1,19 +1,27 @@
 
 class Personagem extends Animacao{
-    constructor (matriz, imagem, x, largura, altura, larguraSprite, alturaSprite) {
-        super(matriz, imagem, x, largura, altura, larguraSprite, alturaSprite)
+    constructor (matriz, imagem, x, variacaoY, largura, altura, larguraSprite, alturaSprite) {
+        super(matriz, imagem, x, variacaoY, largura, altura, larguraSprite, alturaSprite)
 
-        this.yInicial = height - this.altura
+        this.variacaoY = variacaoY
+
+        this.yInicial = height - this.altura - 30
         this.y = this.yInicial
 
         this.xInicial = this.x
 
-        this.gravidade = 3
+        this.gravidade = 7
         this.velocidadeDoPulo = 0
+        this.alturaDoPulo = -50
+        this.pulos = 0
     }
 
     pula() {
-        this.velocidadeDoPulo = -30
+        if(this.pulos < 2) {
+            this.velocidadeDoPulo = this.alturaDoPulo
+            this.pulos++
+        }
+        
     }
 
     aplicaGravidade() {
@@ -22,6 +30,7 @@ class Personagem extends Animacao{
 
         if(this.y > this.yInicial) {
             this.y = this.yInicial
+            this.pulos = 0
         }
     }
 
@@ -41,15 +50,21 @@ class Personagem extends Animacao{
 
         const precisao = .7
 
-        const colisao = collideRectRect(
-            this.x, 
-            this.y, 
-            this.largura * precisao, 
-            this.altura * precisao, 
-            inimigo.x, 
-            inimigo.y, 
-            inimigo.largura * precisao, 
-            inimigo.altura * precisao
+        // circle(this.x + (this.largura/2) , 
+        // this.y + (this.altura/2), 
+        // this.largura * precisao)
+
+        // circle(inimigo.x + (inimigo.largura/2), 
+        // inimigo.y + (inimigo.altura/2), 
+        // inimigo.largura * precisao)
+
+        const colisao = collideCircleCircle(
+            this.x + (this.largura/2), 
+            this.y + (this.altura/2), 
+            this.largura * precisao,
+            inimigo.x + (inimigo.largura/2), 
+            inimigo.y + (inimigo.altura/2), 
+            inimigo.largura * precisao
         )
 
         return colisao
