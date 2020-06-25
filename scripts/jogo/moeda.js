@@ -1,12 +1,11 @@
 class Moeda {
-    constructor(imagem, velocidade, delay){
+    constructor(imagem, x, variacaoY, largura, altura, velocidade){
         this.imagem = imagem
-        this.x = width - 60
-        this.posicoes = [height - 100, height - 250, height - 400]
-        this.index
+        this.x = x
+        this.variacaoY = variacaoY
         this.velocidade = velocidade
-        this.delay = delay
-        this.index = Math.floor(Math.random() * this.posicoes.length)
+        this.largura = largura
+        this.altura = altura
     }
 
     exibe(){
@@ -14,16 +13,17 @@ class Moeda {
         image(
             this.imagem,
             this.x, 
-            this.posicoes[this.index],
-            55, 53
+            this.variacaoY,
+            this.largura,
+            this.altura
         )
         this.move()
     }
 
-    move (){
+    move (delay){
         this.x = this.x - this.velocidade
 
-        if(this.x < -width - this.delay) {
+        if(this.x < -width - delay) {
             this.x = width
         }
     }

@@ -50,14 +50,6 @@ class Personagem extends Animacao{
 
         const precisao = .7
 
-        // circle(this.x + (this.largura/2) , 
-        // this.y + (this.altura/2), 
-        // this.largura * precisao)
-
-        // circle(inimigo.x + (inimigo.largura/2), 
-        // inimigo.y + (inimigo.altura/2), 
-        // inimigo.largura * precisao)
-
         const colisao = collideCircleCircle(
             this.x + (this.largura/2), 
             this.y + (this.altura/2), 
@@ -68,6 +60,21 @@ class Personagem extends Animacao{
         )
 
         return colisao
+    }
+
+    estaColetando(moeda) {
+        const precisao = .7
+
+        const colisaoMoeda = collideCircleCircle(
+            this.x + (this.largura/2), 
+            this.y + (this.altura/2), 
+            this.largura * precisao,
+            moeda.x + (moeda.largura/2), 
+            moeda.variacaoY + (moeda.altura/2), 
+            moeda.largura
+        )
+
+        return colisaoMoeda
     }
 
 }

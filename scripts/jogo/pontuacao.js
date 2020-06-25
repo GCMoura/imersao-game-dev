@@ -11,6 +11,9 @@ class Pontuacao {
     }
 
     adicionarPonto(ponto){
-        this.pontos = this.pontos + ponto
+        if(ponto === true){
+            this.pontos = this.pontos + 10
+            ponto = false
+        }
     }
 }
