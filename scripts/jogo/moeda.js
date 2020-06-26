@@ -2,22 +2,27 @@ class Moeda {
     constructor(imagem, x, variacaoY, largura, altura, velocidade){
         this.imagem = imagem
         this.x = x
-        this.variacaoY = variacaoY
+        this.variacaoY = variacaoY 
         this.velocidade = velocidade
         this.largura = largura
-        this.altura = altura
+        this.altura = altura     
+        
     }
 
     exibe(){
-        
-        image(
-            this.imagem,
-            this.x, 
-            this.variacaoY,
-            this.largura,
-            this.altura
-        )
-        this.move()
+
+        for (let i = 0; i < 3; i++){
+            const posicao = 150 * i 
+
+            image(
+                this.imagem,
+                this.x, 
+                this.variacaoY - posicao,
+                this.largura,
+                this.altura
+            )
+        }
+    
     }
 
     move (delay){
@@ -26,5 +31,9 @@ class Moeda {
         if(this.x < -width - delay) {
             this.x = width
         }
+    }
+
+    apaga(){
+        this.imagem.remove()
     }
 }

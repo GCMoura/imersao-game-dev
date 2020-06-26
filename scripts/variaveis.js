@@ -4,13 +4,10 @@ let imagemCenario;
 let velocidadeCenario = 3
 let velocidadeFrame = 40
 
-let moedaAlto
-let moedaMedio
-let moedaBaixo
 let imagemMoeda
 let delayMoeda
-let pontuacaoMoeda
-const moedas = []
+let pontuacaoMoeda = 0
+let moeda
 
 let personagem;
 let imagemPersonagem;
@@ -136,3 +133,8 @@ let botaoGerenciador
 
 let imagemTelaInicial
 let fonteTelaInicial
+
+let vida
+let imagemVida
+
+let fita

@@ -10,10 +10,9 @@ class Pontuacao {
         text(parseInt(this.pontos), width - 40, 60)
     }
 
-    adicionarPonto(ponto){
-        if(ponto === true){
-            this.pontos = this.pontos + 10
-            ponto = false
-        }
+    adicionarPonto(){
+        this.pontos = this.pontos + 10
     }
+
+    
 }

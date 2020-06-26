@@ -20,7 +20,7 @@ function keyPressed(){
     jogo.keyPressed(key)
 }
 
-function draw(){ //desenhar o jogo. É chamado a todo momento
+function draw(){ //desenhar o jogo.
     cenas[cenaAtual].draw()
 }
 

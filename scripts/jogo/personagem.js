@@ -14,6 +14,8 @@ class Personagem extends Animacao{
         this.velocidadeDoPulo = 0
         this.alturaDoPulo = -50
         this.pulos = 0
+
+        this.invencivel = false
     }
 
     pula() {
@@ -46,7 +48,18 @@ class Personagem extends Animacao{
         }
     }
 
+    tornarInvencivel(){
+        this.invencivel = true
+        setTimeout(() => {
+            this.invencivel = false
+        }, 1000)
+    }
+
     estaColidindo(inimigo) {
+
+        if(this.invencivel) {
+            return false
+        }
 
         const precisao = .7
 
@@ -63,6 +76,7 @@ class Personagem extends Animacao{
     }
 
     estaColetando(moeda) {
+         
         const precisao = .7
 
         const colisaoMoeda = collideCircleCircle(
@@ -73,7 +87,6 @@ class Personagem extends Animacao{
             moeda.variacaoY + (moeda.altura/2), 
             moeda.largura
         )
-
         return colisaoMoeda
     }
 
