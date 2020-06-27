@@ -5,7 +5,7 @@ class Personagem extends Animacao{
 
         this.variacaoY = variacaoY
 
-        this.yInicial = height - this.altura - 30
+        this.yInicial = height - this.altura - this.variacaoY
         this.y = this.yInicial
 
         this.xInicial = this.x
@@ -75,19 +75,26 @@ class Personagem extends Animacao{
         return colisao
     }
 
-    estaColetando(moeda) {
-         
-        const precisao = .7
-
-        const colisaoMoeda = collideCircleCircle(
-            this.x + (this.largura/2), 
-            this.y + (this.altura/2), 
-            this.largura * precisao,
-            moeda.x + (moeda.largura/2), 
-            moeda.variacaoY + (moeda.altura/2), 
-            moeda.largura
-        )
-        return colisaoMoeda
+    passou(inimigo){
+        if(this.x > inimigo.x){
+            return true
+        }
+        return false
     }
+
+    // estaColetando(moeda) {
+         
+    //     const precisao = .7
+
+    //     const colisaoMoeda = collideCircleCircle(
+    //         this.x + (this.largura/2), 
+    //         this.y + (this.altura/2), 
+    //         this.largura * precisao,
+    //         moeda.x + (moeda.largura/2), 
+    //         moeda.variacaoY + (moeda.altura/2), 
+    //         moeda.largura
+    //     )
+    //     return colisaoMoeda
+    // }
 
 }

@@ -1,16 +1,34 @@
 
 let cenario;
 let imagemCenario;
+
+let cenario1;
+let cenario2;
+let cenario3;
+let cenario4;
+let cenario5;
+let cenario6;
+let cenario7;
+
+let imagemCenario1;
+let imagemCenario2;
+let imagemCenario3;
+let imagemCenario4;
+let imagemCenario5;
+let imagemCenario6;
+let imagemCenario7;
+
 let velocidadeCenario = 3
 let velocidadeFrame = 40
 
-let imagemMoeda
-let delayMoeda
-let pontuacaoMoeda = 0
-let moeda
+// let imagemMoeda
+// let delayMoeda
+// let pontuacaoMoeda = 0
+// let moeda
 
 let personagem;
 let imagemPersonagem;
+
 const matrizPersonagem = [
     [0, 0],
     [220, 0],
@@ -124,7 +142,7 @@ let somDoPulo;
 let somGameOver;
 let pontuacao
 
-let cenaAtual = 'telaInicial'
+let cenaAtual = 'jogo'
 let cenas
 
 let jogo   
@@ -138,3 +156,5 @@ let vida
 let imagemVida
 
 let fita
+
+let pontuacaoFlag = 0
