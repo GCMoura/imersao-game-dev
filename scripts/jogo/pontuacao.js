@@ -10,9 +10,13 @@ class Pontuacao {
         text(parseInt(this.pontos), width - 40, 60)
     }
 
-    adicionarPonto(){
+    adicionarPonto(vida){
         this.pontos = this.pontos + 10
+        if(this.pontos % 100 == 0){
+            vida.ganhaVida()
+            somPowerUp.play()
+            return this.pontos
+        }
+        return this.pontos
     }
-
-    
 }

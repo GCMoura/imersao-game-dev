@@ -18,6 +18,22 @@ let imagemCenario5;
 let imagemCenario6;
 let imagemCenario7;
 
+let segundaFase1
+let segundaFase2
+let segundaFase3
+let segundaFase4
+let segundaFase5
+let segundaFase6
+let segundaFase7
+
+let imagemSegundaFase1
+let imagemSegundaFase2
+let imagemSegundaFase3
+let imagemSegundaFase4
+let imagemSegundaFase5
+let imagemSegundaFase6
+let imagemSegundaFase7
+
 let velocidadeCenario = 3
 let velocidadeFrame = 40
 
@@ -142,11 +158,12 @@ let somDoPulo;
 let somGameOver;
 let pontuacao
 
-let cenaAtual = 'jogo'
+let cenaAtual = 'telaInicial'
 let cenas
 
 let jogo   
 let telaInicial
+let segundaFase
 let botaoGerenciador
 
 let imagemTelaInicial
@@ -158,3 +175,5 @@ let imagemVida
 let fita
 
 let pontuacaoFlag = 0
+
+let somPowerUp

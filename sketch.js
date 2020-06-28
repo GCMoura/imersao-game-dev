@@ -7,12 +7,16 @@ function setup() { //setup inicial do jogo. É chamado uma vez no inicio
     telaInicial = new TelaInicial()
     botaoGerenciador = new BotaoGerenciador('Start', width / 2, height / 2)
 
+    segundaFase = new SegundaFase()
+    segundaFase.setup()
+
     cenas = {
         jogo,
-        telaInicial
+        telaInicial,
+        segundaFase
     }
     
-    //somDoJogo.loop()
+    somDoJogo.loop()
     frameRate(velocidadeFrame)
 }
 

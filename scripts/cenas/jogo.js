@@ -2,7 +2,6 @@ class Jogo {
     constructor() {
         this.indice = 0
         //this.moedaAtual = 0
-
         this.mapa = fita.mapa
     }
 
@@ -16,7 +15,7 @@ class Jogo {
         cenario3 = new Cenario(imagemCenario3, 2)
         cenario2 = new Cenario(imagemCenario2, 2.5)
         cenario1 = new Cenario(imagemCenario1, 3)
-        
+
         pontuacao = new Pontuacao()
 
         personagem = new Personagem(matrizPersonagem, imagemPersonagem, 20, 110, 110, 135, 220, 270)
@@ -112,8 +111,10 @@ class Jogo {
         if(personagem.passou(inimigo)){
             pontuacaoFlag++
             if(pontuacaoFlag === 1){
-                pontuacao.adicionarPonto()
-                console.log(this.pontos)
+                pontuacao.adicionarPonto(vida)
+                if(pontuacao.pontos === 10){
+                    cenaAtual = 'segundaFase'                   
+                }
             }
         }
         
