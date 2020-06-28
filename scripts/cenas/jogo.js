@@ -112,7 +112,7 @@ class Jogo {
             pontuacaoFlag++
             if(pontuacaoFlag === 1){
                 pontuacao.adicionarPonto(vida)
-                if(pontuacao.pontos === 10){
+                if(pontuacao.pontos === 30){
                     cenaAtual = 'segundaFase'                   
                 }
             }
